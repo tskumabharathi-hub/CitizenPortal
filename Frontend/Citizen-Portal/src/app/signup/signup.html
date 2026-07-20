@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="signup-card">
+        <h1>Create an account</h1>
+        <label>Name:<span class="required">*</span></label>
+        <input
+            type="text"
+            placeholder="Enter your name"
+            [(ngModel)]="name">
+        <label>Email:<span class="required">*</span></label>
+        <input
+            type="email"
+            placeholder="Enter your email id"
+            [(ngModel)]="email">
+        <div class="error" *ngIf="emailError">{{ emailError }}</div>
+        <label>Password:<span class="required">*</span></label>
+        <input
+            type="password"
+            placeholder="Enter your password"
+            [(ngModel)]="password">
+        <div class="error" *ngIf="passwordError">
+            {{ passwordError }}
+        </div>
+        <button
+            class="create-btn"
+            (click)="createAccount()">
+            Create Account
+        </button>
+        <button
+            class="google-btn"
+            (click)="googleLogin()">
+            Sign in with Google
+        </button>
+        <p>
+            already have an account ?
+            <a routerLink="/login">login</a>
+            
+        </p>
+    </div>
+</div>

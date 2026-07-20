@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="signup-card">
+        <h1>Citizen Login</h1>
+        <label>Email/Phone:</label>
+        <input
+            type="text"
+            placeholder="Enter your email or phone number"
+            [(ngModel)]="contactInfo"
+            name="contactInfo"
+            #contactInfoRef="ngModel"
+            required
+            [pattern]="emailOrPhonePattern">
+        <label>Password:</label>
+        <input
+            type="password"
+            placeholder="Enter your password"
+            [(ngModel)]="password">
+        <button
+            class="create-btn"
+            (click)="login()">
+            Login
+        </button>
+    </div>
+</div>

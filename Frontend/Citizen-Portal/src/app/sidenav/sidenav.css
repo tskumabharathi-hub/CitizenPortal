@@ -1,0 +1,59 @@
+.sidebar{
+
+    position:fixed;
+
+    left:-300px;
+
+    top:127px;
+
+    width:280px;
+
+    height: calc(100vh - 122px);;
+
+    background:#ddd;
+
+    transition:.4s;
+
+    border-right:2px solid #000;
+
+}
+
+.sidebar.open{
+
+    left:0;
+
+}
+
+.sidebar img{
+
+    width:150px;
+
+    display:block;
+
+    margin:20px auto;
+
+}
+
+.sidebar a{
+
+    display:block;
+
+    padding:20px;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+    color:black;
+
+    border-top:2px solid black;
+
+}
+
+.sidebar a:hover{
+
+    background:white;
+
+}

@@ -1,0 +1,9 @@
+.content
+{
+    width:calc(100% - 280px);
+    min-height:calc(100vh - 120px);
+    background:#eef2f5;
+    box-sizing:border-box;
+    overflow-y:auto;
+    margin-left: 273px;
+}

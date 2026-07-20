@@ -1,0 +1,78 @@
+<div class="profile-container">
+    <div class="top-section">
+        <div class="user-info">
+            <div class="profile-pic"></div>
+            <div class="details">
+                <h2>{{profile.fullName}}</h2>
+                <p>{{profile.email}}</p>
+            </div>
+        </div>
+        <button
+            class="edit-btn"
+            *ngIf="!isEditing"
+            (click)="editProfile()">
+            Edit
+        </button>
+    </div>
+    <div class="profile-form">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input
+                type="text"
+                [(ngModel)]="profile.firstName"
+                [readonly]="!isEditing">
+        </div>
+        <div class="form-group">
+            <label>Surname</label>
+            <input
+                type="text"
+                [(ngModel)]="profile.lastName"
+                [readonly]="!isEditing">
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <input
+                type="text"
+                [(ngModel)]="profile.gender"
+                [readonly]="!isEditing">
+        </div>
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input
+                type="text"
+                [(ngModel)]="profile.mobile"
+                [readonly]="!isEditing">
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input
+                type="text"
+                [(ngModel)]="profile.city"
+                [readonly]="!isEditing">
+        </div>
+        <div class="form-group">
+            <label>Pin Code</label>
+            <input
+                type="text"
+                [(ngModel)]="profile.pincode"
+                [readonly]="!isEditing">
+        </div>
+        <div class="form-group address">
+            <label>Address</label>
+            <textarea
+                rows="4"
+                [(ngModel)]="profile.address"
+                [readonly]="!isEditing"></textarea>
+        </div>    
+    </div>
+    <div class="save-section" *ngIf="isEditing">
+        <button
+            class="save-btn"
+            (click)="saveProfile()">
+            Save
+        </button>
+        <button class="save-btn" (click)="cancelEdit()">
+            Cancel
+        </button>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<app-header
+(profileClick)="toggleSidebar()">
+</app-header>
+
+<app-sidenav
+[opened]="sidebar">
+</app-sidenav>
+
+<div class="content" >
+    <router-outlet></router-outlet>
+</div>
