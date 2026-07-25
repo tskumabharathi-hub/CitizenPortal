@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitizenPortal", "CitizenPortal\CitizenPortal.csproj", "{5C506BD7-6407-46E0-8DD7-5C58D65B2AE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitizenPortal.API", "CitizenPortal.API\CitizenPortal.API.csproj", "{C90D7DC3-E27B-4F9D-BC51-19EB0C40F3FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitizenPortal.BLL", "CitizenPortal.BLL\CitizenPortal.BLL.csproj", "{F3EDCC77-F9F4-4316-9066-54097779CD23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitizenPortal.DAL", "CitizenPortal.DAL\CitizenPortal.DAL.csproj", "{4091326A-D75F-4F1F-951B-EEFBDD2C508B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitizenPortal.Models", "CitizenPortal.Models\CitizenPortal.Models.csproj", "{7E1512A0-17B3-44BB-8A65-15785A1309EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitizenPortal.DTO", "CitizenPortal.DTO\CitizenPortal.DTO.csproj", "{B1263A9D-3FCC-4926-96FB-5BD415E9F2B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C506BD7-6407-46E0-8DD7-5C58D65B2AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C506BD7-6407-46E0-8DD7-5C58D65B2AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C506BD7-6407-46E0-8DD7-5C58D65B2AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C506BD7-6407-46E0-8DD7-5C58D65B2AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C90D7DC3-E27B-4F9D-BC51-19EB0C40F3FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C90D7DC3-E27B-4F9D-BC51-19EB0C40F3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C90D7DC3-E27B-4F9D-BC51-19EB0C40F3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C90D7DC3-E27B-4F9D-BC51-19EB0C40F3FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3EDCC77-F9F4-4316-9066-54097779CD23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EDCC77-F9F4-4316-9066-54097779CD23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EDCC77-F9F4-4316-9066-54097779CD23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EDCC77-F9F4-4316-9066-54097779CD23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4091326A-D75F-4F1F-951B-EEFBDD2C508B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4091326A-D75F-4F1F-951B-EEFBDD2C508B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4091326A-D75F-4F1F-951B-EEFBDD2C508B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4091326A-D75F-4F1F-951B-EEFBDD2C508B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E1512A0-17B3-44BB-8A65-15785A1309EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E1512A0-17B3-44BB-8A65-15785A1309EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E1512A0-17B3-44BB-8A65-15785A1309EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E1512A0-17B3-44BB-8A65-15785A1309EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1263A9D-3FCC-4926-96FB-5BD415E9F2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1263A9D-3FCC-4926-96FB-5BD415E9F2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1263A9D-3FCC-4926-96FB-5BD415E9F2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1263A9D-3FCC-4926-96FB-5BD415E9F2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9EF31A1-018D-482A-85A1-C12750D32F28}
+	EndGlobalSection
+EndGlobal
