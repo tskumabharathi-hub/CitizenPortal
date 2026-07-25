@@ -1,8 +1,6 @@
 ﻿using CitizenPortal.BLL.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using CitizenPortal.BLL.Interfaces;
 using CitizenPortal.DTO.Complaint;
 using System.Security.Claims;
 
