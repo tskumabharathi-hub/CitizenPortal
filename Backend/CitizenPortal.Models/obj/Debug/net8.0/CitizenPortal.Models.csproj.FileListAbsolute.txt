@@ -1,0 +1,12 @@
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\bin\Debug\net8.0\CitizenPortal.Models.deps.json
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\bin\Debug\net8.0\CitizenPortal.Models.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\bin\Debug\net8.0\CitizenPortal.Models.pdb
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\CitizenPortal.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\CitizenPortal.Models.AssemblyInfoInputs.cache
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\CitizenPortal.Models.AssemblyInfo.cs
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\CitizenPortal.Models.csproj.CoreCompileInputs.cache
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\CitizenPortal.Models.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\refint\CitizenPortal.Models.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\CitizenPortal.Models.pdb
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\ref\CitizenPortal.Models.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.Models\obj\Debug\net8.0\CitizenPortal.Models.csproj.AssemblyReference.cache

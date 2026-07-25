@@ -1,0 +1,11 @@
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\bin\Debug\net8.0\CitizenPortal.DTO.deps.json
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\bin\Debug\net8.0\CitizenPortal.DTO.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\bin\Debug\net8.0\CitizenPortal.DTO.pdb
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\obj\Debug\net8.0\CitizenPortal.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\obj\Debug\net8.0\CitizenPortal.DTO.AssemblyInfoInputs.cache
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\obj\Debug\net8.0\CitizenPortal.DTO.AssemblyInfo.cs
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\obj\Debug\net8.0\CitizenPortal.DTO.csproj.CoreCompileInputs.cache
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\obj\Debug\net8.0\CitizenPortal.DTO.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\obj\Debug\net8.0\refint\CitizenPortal.DTO.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\obj\Debug\net8.0\CitizenPortal.DTO.pdb
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DTO\obj\Debug\net8.0\ref\CitizenPortal.DTO.dll

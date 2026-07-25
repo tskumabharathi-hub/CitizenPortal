@@ -1,0 +1,17 @@
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\bin\Debug\net8.0\CitizenPortal.DAL.deps.json
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\bin\Debug\net8.0\CitizenPortal.DAL.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\bin\Debug\net8.0\CitizenPortal.DAL.pdb
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\bin\Debug\net8.0\CitizenPortal.Models.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\bin\Debug\net8.0\CitizenPortal.Models.pdb
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenPortal.DAL.csproj.AssemblyReference.cache
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenPortal.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenPortal.DAL.AssemblyInfoInputs.cache
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenPortal.DAL.AssemblyInfo.cs
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenPortal.DAL.csproj.CoreCompileInputs.cache
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenP.F836026D.Up2Date
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenPortal.DAL.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\refint\CitizenPortal.DAL.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenPortal.DAL.pdb
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\ref\CitizenPortal.DAL.dll
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\bin\Debug\net8.0\CitizenPortal.DAL.runtimeconfig.json
+C:\Users\nimal\source\repos\CitizenPortal\CitizenPortal.DAL\obj\Debug\net8.0\CitizenPortal.DAL.genruntimeconfig.cache
