@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [RouterLink],
@@ -10,6 +11,18 @@ import { RouterLink } from '@angular/router';
 
 export class Sidenav {
 
-  @Input() opened=false;
+
+  @Input() opened=false; 
+  constructor(private router:Router)
+  {
+
+  }
+
+  logout(): void 
+  {
+    localStorage.removeItem('token');
+    localStorage.removeItem('tokenExpiration');
+    this.router.navigate(['/login']);
+  }
 
 }

@@ -6,6 +6,7 @@ import { ReportIssue } from './report-issue/report-issue';
 import { Home } from './home/home';
 import { Profile } from './profile/profile';
 import { ViewIncident } from './view-incident/view-incident';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'signup', pathMatch: 'full' },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { 
     path: 'dashboard', 
     component: Dashboard,
+    canActivate: [authGuard],
     children:[
       { path: '', component: Home },
       { path: 'report-issue', component: ReportIssue },
