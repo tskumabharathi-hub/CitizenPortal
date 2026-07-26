@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Security.Cryptography.Xml;
 using System.Text;
 
 namespace CitizenPortal.API
@@ -89,6 +88,17 @@ namespace CitizenPortal.API
                         Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
                 };
             });
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AngularPolicy", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
             //Auth
             builder.Services.AddScoped<IAuthService, AuthService>();
             //complaint
@@ -97,19 +107,20 @@ namespace CitizenPortal.API
             builder.Services.AddScoped<IDepartmentService, DepartmentService>();
             //ComplaintCategory
             builder.Services.AddScoped<IComplaintCategoryService, ComplaintCategoryService>();
-            var app = builder.Build();
 
+            builder.Services.AddScoped<IEmailService, EmailService>();
+
+            var app = builder.Build();
+            app.UseHttpsRedirection();
+            app.UseCors("AngularPolicy");
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
             app.UseHttpsRedirection();
-
             app.UseAuthentication();
-            
             app.UseAuthorization();
 
 
@@ -122,7 +133,7 @@ namespace CitizenPortal.API
                 await CitizenPortal.API.Seed.DbInitializer
                     .SeedRolesAndAdminAsync(services);
             }
-             app.Run();
+            app.Run();
         }
     }
 }

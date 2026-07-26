@@ -11,6 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace CitizenPortal.BLL.Services
 {
@@ -79,6 +80,7 @@ namespace CitizenPortal.BLL.Services
                 Expiration = expiry
             };
         }
+        
         public async Task<AuthResponseDto> RegisterAsync(RegisterDto registerDto)
         {
             var existingUser = await _userManager.FindByEmailAsync(registerDto.Email);
@@ -90,18 +92,23 @@ namespace CitizenPortal.BLL.Services
                     Message = "Email already exists."
                 };
             }
+
             var user = new ApplicationUser
             {
                 UserName = registerDto.Email,
                 Email = registerDto.Email,
-                FirstName = registerDto.FirstName,
-                Surname = registerDto.SurName,
-                Gender = registerDto.Gender,
-                Address = registerDto.Address,
-                City = registerDto.City,
-                Pincode = registerDto.Pincode,
-                EmailConfirmed = true
+                FirstName = string.Empty,
+                Surname = string.Empty,
+                Gender = string.Empty,
+                Address = string.Empty,
+                City = string.Empty,
+                Pincode = string.Empty,
+                EmailConfirmed = false,
+                EmailOtp = registerDto.OTP,
+                OtpExpiry = DateTime.UtcNow.AddMinutes(10)
+
             };
+
             var result = await _userManager.CreateAsync(user, registerDto.Password);
             if(!result.Succeeded)
             {
@@ -116,6 +123,59 @@ namespace CitizenPortal.BLL.Services
             {
                 IsSuccess = true,
                 Message = "Registration successful."
+            };
+        }
+
+        public async Task<ApiResponse> VerifyOtpAsync(VerifyOtpDto dto)
+        {
+            var user = await _userManager.FindByEmailAsync(dto.Email);
+
+            if (user == null)
+            {
+                return new ApiResponse
+                {
+                    IsSuccess = false,
+                    Message = "User not found."
+                };
+            }
+
+            if (user.EmailConfirmed)
+            {
+                return new ApiResponse
+                {
+                    IsSuccess = false,
+                    Message = "Email already verified."
+                };
+            }
+
+            if (user.OtpExpiry == null || user.OtpExpiry < DateTime.UtcNow)
+            {
+                return new ApiResponse
+                {
+                    IsSuccess = false,
+                    Message = "OTP has expired."
+                };
+            }
+
+            if (user.EmailOtp != dto.Otp)
+            {
+                return new ApiResponse
+                {
+                    IsSuccess = false,
+                    Message = "Invalid OTP."
+                };
+            }
+
+            user.EmailConfirmed = true;
+            user.EmailOtp = null;
+            user.OtpExpiry = null;
+
+            await _userManager.UpdateAsync(user);
+
+            return new ApiResponse
+            {
+                IsSuccess = true,
+                Message = "Email verified successfully."
             };
         }
     }
