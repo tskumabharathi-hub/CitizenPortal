@@ -4,14 +4,9 @@ using CitizenPortal.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
 
 namespace CitizenPortal.BLL.Services
 {
@@ -25,6 +20,7 @@ namespace CitizenPortal.BLL.Services
             _userManager = userManager;
             _configuration = configuration;
         }
+        
         public async Task<LoginResponseDto> LoginAsync(LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
@@ -178,5 +174,77 @@ namespace CitizenPortal.BLL.Services
                 Message = "Email verified successfully."
             };
         }
+
+        public async Task<ProfileResponseDto?> GetProfileAsync(ClaimsPrincipal user)
+        {
+            // Read UserId from JWT
+            var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return null;
+            }
+
+            // Fetch user from Identity
+            var applicationUser = await _userManager.FindByIdAsync(userId);
+
+            if (applicationUser == null)
+            {
+                return null;
+            }
+
+            // Map entity to DTO
+            return new ProfileResponseDto
+            {
+                FirstName = applicationUser.FirstName,
+                Surname = applicationUser.Surname,
+                Email = applicationUser.Email ?? string.Empty,
+                Gender = applicationUser.Gender,
+                Address = applicationUser.Address,
+                City = applicationUser.City,
+                Pincode = applicationUser.Pincode,
+                PhoneNumber = applicationUser.PhoneNumber
+            };
+        }
+
+        public async Task<ApiResponse> UpdateProfileAsync(string userId,UpdateProfileDto dto)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                return new ApiResponse
+                {
+                    IsSuccess = false,
+                    Message = "User not found."
+                };
+            }
+
+            user.FirstName = dto.FirstName;
+            user.Surname = dto.Surname;
+            user.Gender = dto.Gender;
+            user.PhoneNumber = dto.PhoneNumber;
+            user.Address = dto.Address;
+            user.City = dto.City;
+            user.Pincode = dto.Pincode;
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                return new ApiResponse
+                {
+                    IsSuccess = false,
+                    Message = result.Errors.First().Description
+                };
+            }
+
+            return new ApiResponse
+            {
+                IsSuccess = true,
+                Message = "Profile updated successfully."
+            };
+        }
+
     }
 }
