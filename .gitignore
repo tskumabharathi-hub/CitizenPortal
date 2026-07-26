@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Frontend/Citizen-Portal/.vscode
+/.vs
+/Frontend/Citizen-Portal/.editorconfig
+/Frontend/Citizen-Portal/.prettierrc

@@ -1,11 +1,11 @@
 <div class="container">
     <div class="signup-card">
         <h1>Citizen Login</h1>
-        <label>Email/Phone:</label>
+        <label>Email:</label>
         <input
             type="text"
-            placeholder="Enter your email or phone number"
-            [(ngModel)]="contactInfo"
+            placeholder="Enter your email"
+            [(ngModel)]="email"
             name="contactInfo"
             #contactInfoRef="ngModel"
             required
@@ -20,5 +20,7 @@
             (click)="login()">
             Login
         </button>
+
+        <p *ngIf="loginError" class="error">{{loginError}}</p>
     </div>
 </div>

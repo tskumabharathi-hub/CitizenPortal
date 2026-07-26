@@ -133,3 +133,42 @@ a{
 
     font-weight:bold;
 }
+
+.otp-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.otp-message {
+    color: #555;
+    margin: 15px 0 25px;
+    font-size: 15px;
+}
+
+.otp-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.otp-boxes input {
+    width: 50px;
+    height: 55px;
+    border: 2px solid #d0d0d0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.otp-boxes input:focus {
+    border-color: #2b2d72;
+}
+
+.error {
+    color: red;
+    margin-bottom: 15px;
+}
