@@ -5,11 +5,27 @@ import { UserService } from '../services/user';
 import { UserProfile } from '../models/user-profile';
 import { ChangeDetectorRef } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProfileService } from '../services/profile.service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, 
+            FormsModule,
+            MatCardModule,
+            MatButtonModule,
+            MatIconModule,
+            MatInputModule,
+            MatFormFieldModule,
+            MatSelectModule,
+            MatProgressSpinnerModule],
   templateUrl: './profile.html',
   styleUrls: ['./profile.css']
 })
@@ -29,10 +45,12 @@ export class Profile implements OnInit {
     city: '',
     pincode: '',
     email: '',
-    fullName: ''
+    fullName: '',
+    state: '',
+    district:''
   };
 
-  constructor(private userService: UserService,private cdr:ChangeDetectorRef)
+  constructor(private userService: UserService,private cdr:ChangeDetectorRef,private profileService: ProfileService)
   {
 
   }
@@ -44,7 +62,6 @@ export class Profile implements OnInit {
 
   loadProfile(): void 
   {
-
     this.isLoading = true;
     this.userService.getProfile().subscribe({
       next: (response) => {
@@ -58,6 +75,7 @@ export class Profile implements OnInit {
         this.profile.pincode = this.userProfile.pincode;
         this.profile.city = this.userProfile.city;
         this.profile.mobile = this.userProfile.surname;
+        this.profile.email = this.userProfile.email;
 
         this.isLoading = false;
         this.cdr.detectChanges();
@@ -102,6 +120,27 @@ export class Profile implements OnInit {
   cancelEdit()
   {
     this.isEditing = false;
+  }
+
+  onPincodeChange() {
+
+    if (this.profile.pincode.length !== 6)
+      return;
+
+    this.profileService
+        .getLocationByPincode(this.profile.pincode)
+        .subscribe(
+        {
+          next: (response) => 
+          {
+            console.log(response);
+            this.profile.state = response.state;
+            this.profile.district = response.district;
+            this.profile.city = response.district;
+            this.cdr.detectChanges();
+          },
+          error: err => console.error(err)
+        });
   }
 
 }

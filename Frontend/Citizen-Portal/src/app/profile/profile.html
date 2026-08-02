@@ -1,82 +1,221 @@
 <div class="loading-overlay" *ngIf="isLoading">
-    <div class="spinner"></div>
+  <mat-spinner diameter="55"></mat-spinner>
 </div>
 
-<div class="profile-container">
-    <div class="top-section">
-        <div class="user-info">
-            <div class="profile-pic"></div>
-            <div class="details">
-                <h2>{{profile.fullName}}</h2>
-                <p>{{profile.email}}</p>
+<div class="profile-page">
+
+    <mat-card class="profile-header">
+
+        <div class="header-left">
+
+            <div class="avatar">
+
+                <mat-icon>person</mat-icon>
+
             </div>
+
+            <div>
+
+                <h2>{{profile.fullName}}</h2>
+
+            </div>
+
         </div>
+
         <button
-            class="edit-btn"
+            mat-raised-button
+            color="primary"
             *ngIf="!isEditing"
             (click)="editProfile()">
-            Edit
+
+            <mat-icon>edit</mat-icon>
+
+            Edit Profile
+
         </button>
-    </div>
-    <div class="profile-form">
-        <div class="form-group">
-            <label>Full Name</label>
-            <input
-                type="text"
-                [(ngModel)]="profile.firstName"
-                [readonly]="!isEditing">
+
+    </mat-card>
+
+
+    <!-- Personal -->
+
+    <mat-card class="section-card">
+
+        <h3>
+
+            <mat-icon>person</mat-icon>
+
+            Personal Information
+
+        </h3>
+
+        <div class="grid">
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>First Name</mat-label>
+
+                <input
+                    matInput
+                    [(ngModel)]="profile.firstName"
+                    [readonly]="!isEditing">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Surname</mat-label>
+
+                <input
+                    matInput
+                    [(ngModel)]="profile.lastName"
+                    [readonly]="!isEditing">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Gender</mat-label>
+
+                <mat-select
+                    [(ngModel)]="profile.gender"
+                    [disabled]="!isEditing">
+
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+
+                </mat-select>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Email</mat-label>
+
+                <input
+                    matInput
+                    [(ngModel)]="profile.email"
+                    readonly>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Mobile</mat-label>
+
+                <input
+                    matInput
+                    [(ngModel)]="profile.mobile"
+                    [readonly]="!isEditing">
+
+            </mat-form-field>
+
         </div>
-        <div class="form-group">
-            <label>Surname</label>
-            <input
-                type="text"
-                [(ngModel)]="profile.lastName"
-                [readonly]="!isEditing">
+
+    </mat-card>
+
+
+    <!-- Address -->
+
+    <mat-card class="section-card">
+
+        <h3>
+
+            <mat-icon>home</mat-icon>
+
+            Address Information
+
+        </h3>
+
+        <div class="grid">
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Pincode</mat-label>
+
+                <input
+                    matInput
+                    maxlength="6"
+                    [(ngModel)]="profile.pincode"
+                    (keyup)="onPincodeChange()"
+                    [readonly]="!isEditing">
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>State</mat-label>
+
+                <input
+                    matInput
+                    [(ngModel)]="profile.state"
+                    readonly>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>District</mat-label>
+
+                <input
+                    matInput
+                    [(ngModel)]="profile.district"
+                    readonly>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>City</mat-label>
+
+                <input
+                    matInput
+                    [(ngModel)]="profile.city"
+                    readonly>
+
+            </mat-form-field>
+
+            <mat-form-field
+                appearance="outline"
+                class="full-width">
+
+                <mat-label>Address</mat-label>
+
+                <textarea
+                    matInput
+                    rows="4"
+                    [(ngModel)]="profile.address"
+                    [readonly]="!isEditing">
+                </textarea>
+
+            </mat-form-field>
+
         </div>
-        <div class="form-group">
-            <label>Gender</label>
-            <input
-                type="text"
-                [(ngModel)]="profile.gender"
-                [readonly]="!isEditing">
-        </div>
-        <div class="form-group">
-            <label>Mobile Number</label>
-            <input
-                type="text"
-                [(ngModel)]="profile.mobile"
-                [readonly]="!isEditing">
-        </div>
-        <div class="form-group">
-            <label>City</label>
-            <input
-                type="text"
-                [(ngModel)]="profile.city"
-                [readonly]="!isEditing">
-        </div>
-        <div class="form-group">
-            <label>Pin Code</label>
-            <input
-                type="text"
-                [(ngModel)]="profile.pincode"
-                [readonly]="!isEditing">
-        </div>
-        <div class="form-group address">
-            <label>Address</label>
-            <textarea
-                rows="4"
-                [(ngModel)]="profile.address"
-                [readonly]="!isEditing"></textarea>
-        </div>    
-    </div>
-    <div class="save-section" *ngIf="isEditing">
+
+    </mat-card>
+
+
+    <div
+        class="button-row"
+        *ngIf="isEditing">
+
         <button
-            class="save-btn"
-            (click)="saveProfile()">
-            Save
-        </button>
-        <button class="save-btn" (click)="cancelEdit()">
+            mat-stroked-button
+            (click)="cancelEdit()">
+
             Cancel
+
         </button>
+
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="saveProfile()">
+
+            Save Changes
+
+        </button>
+
     </div>
+
 </div>
