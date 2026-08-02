@@ -92,7 +92,8 @@ namespace CitizenPortal.API
             {
                 options.AddPolicy("AngularPolicy", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200")
+                    policy.WithOrigins("http://localhost:4200",
+                                "http://localhost:4300")
                           .AllowAnyHeader()
                           .AllowAnyMethod();
                 });
@@ -110,6 +111,8 @@ namespace CitizenPortal.API
             builder.Services.AddScoped<IDashboardService, DashboardService>();
 
             builder.Services.AddScoped<IEmailService, EmailService>();
+
+            builder.Services.AddHttpClient();
 
             var app = builder.Build();
             app.UseHttpsRedirection();
