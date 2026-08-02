@@ -119,11 +119,9 @@ namespace CitizenPortal.DAL.Migrations
 
             modelBuilder.Entity("CitizenPortal.Models.Entities.Complaint", b =>
                 {
-                    b.Property<int>("ComplaintId")
+                    b.Property<Guid>("ComplaintId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ComplaintId"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ComplaintCategoryId")
                         .HasColumnType("int");
@@ -147,6 +145,9 @@ namespace CitizenPortal.DAL.Migrations
 
                     b.Property<double>("Longitude")
                         .HasColumnType("float");
+
+                    b.Property<string>("Remarks")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()

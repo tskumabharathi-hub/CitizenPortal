@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CitizenPortal.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260724120321_AddComplaintLocation")]
-    partial class AddComplaintLocation
+    [Migration("20260729035406_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,6 +52,9 @@ namespace CitizenPortal.DAL.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("EmailOtp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -73,6 +76,9 @@ namespace CitizenPortal.DAL.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime?>("OtpExpiry")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -116,11 +122,9 @@ namespace CitizenPortal.DAL.Migrations
 
             modelBuilder.Entity("CitizenPortal.Models.Entities.Complaint", b =>
                 {
-                    b.Property<int>("ComplaintId")
+                    b.Property<Guid>("ComplaintId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ComplaintId"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ComplaintCategoryId")
                         .HasColumnType("int");
@@ -205,7 +209,7 @@ namespace CitizenPortal.DAL.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("icon")
+                    b.Property<string>("Icon")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DepartmentId");

@@ -5,24 +5,24 @@
 namespace CitizenPortal.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class RenameDepartmentIcon : Migration
+    public partial class AddRemarksToComplaint : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "icon",
-                table: "Departments",
-                newName: "Icon");
+            migrationBuilder.AddColumn<string>(
+                name: "Remarks",
+                table: "Complaints",
+                type: "nvarchar(max)",
+                nullable: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "Icon",
-                table: "Departments",
-                newName: "icon");
+            migrationBuilder.DropColumn(
+                name: "Remarks",
+                table: "Complaints");
         }
     }
 }

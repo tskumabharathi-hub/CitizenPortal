@@ -1,4 +1,3 @@
-
 using CitizenPortal.BLL.Interfaces;
 using CitizenPortal.BLL.Services;
 using CitizenPortal.DAL.Data;
@@ -108,6 +107,8 @@ namespace CitizenPortal.API
             //ComplaintCategory
             builder.Services.AddScoped<IComplaintCategoryService, ComplaintCategoryService>();
 
+            builder.Services.AddScoped<IDashboardService, DashboardService>();
+
             builder.Services.AddScoped<IEmailService, EmailService>();
 
             var app = builder.Build();
@@ -122,8 +123,8 @@ namespace CitizenPortal.API
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
-
-
+            app.UseAuthorization();
+            app.UseStaticFiles();
             app.MapControllers();
             //calling the seeder
             using (var scope = app.Services.CreateScope())

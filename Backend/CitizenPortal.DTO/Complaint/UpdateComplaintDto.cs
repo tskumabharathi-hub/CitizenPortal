@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CitizenPortal.DTO.Complaint
 {
-    public class ComplaintDto
+    public class UpdateComplaintDto
     {
         [Required]
         public int DepartmentId { get; set; }
@@ -24,5 +24,7 @@ namespace CitizenPortal.DTO.Complaint
         public IFormFile? Photo { get; set; }
 
         public string? ImagePath { get; set; }
+        [Required]
+        public string Status { get; set; } = string.Empty;
     }
 }

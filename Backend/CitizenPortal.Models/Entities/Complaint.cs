@@ -11,14 +11,15 @@ namespace CitizenPortal.Models.Entities
     public class Complaint
     {
         [Key]
-        public int ComplaintId {  get; set; }
+        public Guid ComplaintId {  get; set; }
         [Required]
         public string UserId { get; set; } = string.Empty;
         [Required]
         public int DepartmentId {  get; set; }
         [Required]
         public int ComplaintCategoryId {  get; set; }
-        
+
+        public string? Remarks { get; set; }
 
         [Required]
         [StringLength(500)]
