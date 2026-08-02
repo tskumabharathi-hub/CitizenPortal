@@ -1,0 +1,87 @@
+<h2 class="page-title">Dashboard</h2>
+
+<!-- Statistics Cards -->
+
+<div class="stats-grid">
+
+    <div class="stat-card total">
+        <h3>Total Complaints</h3>
+        <h1>{{dashboard?.totalComplaints}}</h1>
+    </div>
+
+    <div class="stat-card pending">
+        <h3>Pending</h3>
+        <h1>{{dashboard?.pendingComplaints}}</h1>
+    </div>
+
+    <div class="stat-card progress">
+        <h3>In Progress</h3>
+        <h1>{{dashboard?.inProgressComplaints}}</h1>
+    </div>
+
+    <div class="stat-card resolved">
+        <h3>Resolved</h3>
+        <h1>{{dashboard?.resolvedComplaints}}</h1>
+    </div>
+
+    <div class="stat-card today">
+        <h3>Today's Complaints</h3>
+        <h1>{{dashboard?.todayComplaints}}</h1>
+    </div>
+
+</div>
+
+<!-- Recent Complaints -->
+
+<div class="recent-card">
+
+    <h3>Recent Complaints</h3>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Complaint ID</th>
+                <th>Department</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let complaint of dashboard?.recentComplaints">
+
+                <td>{{complaint.complaintId | slice:0:8}}...</td>
+
+                <td>{{complaint.department}}</td>
+
+                <td>{{complaint.complaintCategory}}</td>
+
+                <td>
+
+                    <span class="status"
+                          [ngClass]="complaint.status.toLowerCase().replace(' ','-')">
+
+                        {{complaint.status}}
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    {{complaint.createdDate | date:'dd/MM/yyyy HH:mm'}}
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

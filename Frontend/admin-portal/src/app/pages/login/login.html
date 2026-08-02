@@ -1,0 +1,62 @@
+<div class="login-container">
+    <mat-card class="login-card">
+        <div class="logo-section">
+            <mat-icon class="logo-icon">
+                admin_panel_settings
+            </mat-icon>
+            <h1>Citizen Portal</h1>
+            <h3>Administration</h3>
+            <p>Sign in to continue</p>
+        </div>
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input
+                    matInput
+                    type="email"
+                    [(ngModel)]="email"
+                    name="email">
+                <mat-icon matSuffix>
+                    email
+                </mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                    matInput
+                    [type]="hidePassword ? 'password' : 'text'"
+                    [(ngModel)]="password"
+                    name="password">
+                <button
+                    mat-icon-button
+                    matSuffix
+                    type="button"
+                    (click)="hidePassword=!hidePassword">
+                    <mat-icon>
+                        {{hidePassword ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-checkbox [(ngModel)]="rememberMe" name="rememberMe">
+                Remember Me
+            </mat-checkbox>
+            <div class="error" *ngIf="errorMessage">
+                {{errorMessage}}
+            </div>
+            <button
+                mat-raised-button
+                color="primary"
+                class="login-btn"
+                (click)="login()"
+                [disabled]="loading">
+                <span *ngIf="!loading">
+                    Login
+                </span>
+                <mat-spinner
+                    *ngIf="loading"
+                    diameter="22">
+                </mat-spinner>
+            </button>
+        </form>
+    </mat-card>
+</div>

@@ -1,15 +1,22 @@
 <div class="loading-overlay" *ngIf="isLoading">
-    <div class="spinner"></div>
+  <div class="spinner"></div>
 </div>
 
-<app-header
-(profileClick)="toggleSidebar()">
-</app-header>
+<div class="dashboard">
 
-<app-sidenav
-[opened]="sidebar">
-</app-sidenav>
+  <app-header></app-header>
 
-<div class="content" >
-    <router-outlet></router-outlet>
+  <div class="body">
+
+    <app-sidenav
+      class="sidebar"
+      [opened]="sidebar">
+    </app-sidenav>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
 </div>

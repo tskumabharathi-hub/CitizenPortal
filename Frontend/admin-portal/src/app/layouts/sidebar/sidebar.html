@@ -1,0 +1,37 @@
+<div class="sidebar">
+
+    <div class="logo">
+
+        <mat-icon>admin_panel_settings</mat-icon>
+
+        <span>Citizen Admin</span>
+
+    </div>
+
+    <mat-nav-list>
+
+        <a
+            mat-list-item
+            routerLink="/dashboard"
+            routerLinkActive="active">
+
+            <mat-icon>dashboard</mat-icon>
+
+            Dashboard
+
+        </a>
+
+        <a  mat-list-item
+            routerLink="/incidents"
+            routerLinkActive="active">
+            <mat-icon>report_problem</mat-icon>
+            Incidents
+        </a>
+
+        <a mat-list-item (click)="logout()" class="logout-link">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+        </a>
+    </mat-nav-list>
+
+</div>

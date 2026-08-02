@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+
+    <span class="title">
+
+        Citizen Portal Administration
+
+    </span>
+
+    <span class="spacer"></span>
+
+    <button mat-icon-button>
+
+        <mat-icon>
+
+            notifications
+
+        </mat-icon>
+
+    </button>
+
+    <button mat-icon-button>
+
+        <mat-icon>
+
+            account_circle
+
+        </mat-icon>
+
+    </button>
+
+    <span class="admin-name">
+
+        {{adminName}}
+
+    </span>
+
+    <button
+        mat-icon-button
+        (click)="logout()">
+
+        <mat-icon>
+
+            logout
+
+        </mat-icon>
+
+    </button>
+
+</mat-toolbar>

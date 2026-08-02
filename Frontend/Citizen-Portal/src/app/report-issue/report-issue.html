@@ -1,163 +1,65 @@
-<div class="report-container">
-    <div class="department">
-        Public Work Department
+<div class="report-page">
+  <div class="card">
+    <div class="header">
+      <h2>Report an Issue</h2>
     </div>
-    <div class="department">
-        Department of Buildings
-    </div>
-    <div class="department">
-        Water Department
-    </div>
-    <div class="department">
-        Department of Sanitation
-    </div>
-    <div class="card" (click)="openOverlay()">
-        <img src="assets/images/pothole.png">
-        <h3>Pothole Repair</h3>
-        <p>Request pothole repair</p>
-    </div>
-    <div class="card" (click)="openOverlay()">
-        <img src="assets/images/warning.png">
-        <h3>Code Violation</h3>
-        <p>Request code violation</p>
-    </div>
-    <div class="card" (click)="openOverlay()">
-        <img src="assets/images/water.png">
-        <h3>Unsafe drinking water</h3>
-        <p>File complaint online</p>
-    </div>
-    <div class="card" (click)="openOverlay()">
-        <img src="assets/images/bin.png">
-        <h3>Waste Collection</h3>
-        <p>Request collection</p>
-    </div>
-
-    <div class="card" (click)="openOverlay()">
-        <img src="assets/images/light.png">
-        <h3>Broken Street Light</h3>
-        <p>Report broken street light</p>
-    </div>
-
-    <div class="card" (click)="openOverlay()">
-        <img src="assets/images/building.png">
-        <h3>Public Housing</h3>
-        <p>Report violation</p>
-    </div>
-
-    <div class="card" (click)="openOverlay()">
-        <img src="assets/images/tap.png">
-        <h3>Water Leak</h3>
-        <p>Report water leak</p>
-    </div>
-
-    <div class="card" (click)="openOverlay()">
-        <img src="assets/images/recycle.png">
-        <h3>Recycling</h3>
-        <p>Request recycling bin</p>
-    </div>
-
-</div>
-
-<div class="overlay" *ngIf="showOverlay">
-
-    <div class="popup">
-
-        <span class="close" (click)="closeOverlay()">✕</span>
-
+    <form [formGroup]="reportForm" (ngSubmit)="submit()">
+      <div class="row">
         <div class="field">
-            <label>Describe the issue</label>
-            <textarea class="textarea" rows="5"></textarea>
+          <label>Department</label>
+          <select formControlName="department" (change)="departmentChanged()">
+            <option value="">Select Department</option>
+            <option *ngFor="let d of departments"
+                    [value]="d.name">
+              {{ d.name }}
+            </option>
+          </select>
         </div>
-
-        <div class="location">
-
-            <h2>Where did this happen?</h2>
-
-            <button class="location-btn">
-                📍 Use My Current Location
-            </button>
-
+        <div class="field">
+          <label>Issue</label>
+          <select formControlName="issue">
+            <option value="">Select Issue</option>
+            <option *ngFor="let i of issues"
+                    [value]="i">
+              {{ i }}
+            </option>
+          </select>
         </div>
-
-        <div class="coordinates">
-
-            <strong>Your Location :</strong>
-
-            Lat -- ,
-
-            Long --
-
+      </div>
+      <div class="field">
+        <label>Describe Issue</label>
+        <textarea rows="5" formControlName="description"></textarea>
+      </div>
+      <div class="row">
+        <div class="field grow">
+          <label>Location</label>
+          <input type="text" placeholder="Search address"formControlName="address">
         </div>
-
-        <div class="content">
-
-            <button class="upload-btn">
-
-                📷 Upload Photo
-
-            </button>
-
-            <div class="map">
-
-                <!-- Google map comes here -->
-
-            </div>
-
-        </div>
-
-        <div class="buttons">
-
-            <button class="submit" (click)="submitReport()">
-                Submit Report
-            </button>
-
-            <button
-                class="cancel"
-                (click)="closeOverlay()">
-
-                Cancel
-
-            </button>
-
-        </div>
-
-    </div>
-</div>
-
-<div class="overlay" *ngIf="showAck">
-
-    <div class="popup">
-
-        <h1>Incident Report Submitted!</h1>
-
-        <h3>
-            Thank you, Your Report has been received successfully.
-        </h3>
-
-        <div class="details">
-            <p>
-                Your Incident ID :
-                <strong>{{incidentId}}</strong>
-            </p>
-            <p>
-                Submitted On :
-                {{submittedDate}}
-            </p>
-            <p>
-                Location :
-                {{location}}
-            </p>
-            <p>
-                Status :
-                <strong>{{status}}</strong>
-            </p>
-        </div>
-        <button
-            class="submit"
-            (click)="backHome()">
-            Back to Home
+        <button type="button" class="location-btn" (click)="openLocationPicker()">
+          📍 Select Location
         </button>
-    </div>
-</div>
+      </div>
 
-    
+      <div class="upload-section">
+        <div>
+          <label>Upload Photo</label>
+          <input type="file" accept="image/*" (change)="upload($event)">
+        </div>
+
+        <div class="preview">
+          <img *ngIf="preview"
+               [src]="preview">
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="cancel">
+          Cancel
+        </button>
+        <button type="submit" class="submit">
+          Submit Report
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
