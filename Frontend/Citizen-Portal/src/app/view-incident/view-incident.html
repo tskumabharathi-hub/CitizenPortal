@@ -1,0 +1,48 @@
+<div class="incident-container">
+
+    <div class="page-header">
+        <div>
+            <h2>View Incidents</h2>
+            <p>Track all your reported incidents</p>
+        </div>
+    </div>
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Incident ID</th>
+                    <th>Created Date</th>
+                    <th>Current Status</th>
+                    <th>Last Modified</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngIf="incidents.length === 0">
+                    <td colspan="5" class="no-data">
+                        No incidents found.
+                    </td>
+                </tr>
+
+                <tr *ngFor="let incident of incidents">
+
+                    <td>{{incident.complaintId}}</td>
+                    <td>{{incident.createdDate}}</td>
+                    <td>{{incident.status}}</td>
+                    <td>{{incident.updatedDate}}</td>
+                    <td>{{incident.description}}</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

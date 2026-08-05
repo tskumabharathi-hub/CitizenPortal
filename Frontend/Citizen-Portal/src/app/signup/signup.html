@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="signup-card" *ngIf="showSignupScreen">
+        <h1>Create an account</h1>
+        <label>Email:<span class="required">*</span></label>
+        <input
+            type="text"
+            placeholder="Enter your email"
+            [(ngModel)]="email">
+        <div class="error" *ngIf="emailError">{{ emailError }}</div>
+        <label>Password:<span class="required">*</span></label>
+        <input
+            type="password"
+            placeholder="Enter your password"
+            [(ngModel)]="password">
+        <div class="error" *ngIf="passwordError">
+            {{ passwordError }}  
+        </div> 
+        <label>Retype Password:<span class="required">*</span></label>
+        <input
+            type="password"
+            placeholder="Retype your password"
+            [(ngModel)]="reTypePassword">
+        <div class="error" *ngIf="retypePasswordError">
+            {{ retypePasswordError }}
+        </div>
+        <button
+            class="create-btn"
+            (click)="createAccount()">
+            Create Account
+        </button>
+        <p>
+            already have an account ?
+            <a routerLink="/login">login</a>        
+        </p>
+    </div>
+    <!-- OTP Verification Screen -->   
+    <div *ngIf="showOtpScreen" class="signup-card">
+
+        <h2>Email Verification</h2>
+        
+        <p class="otp-message">
+            Enter the 5-digit OTP sent to
+            <strong>{{ email }}</strong>
+        </p>
+        
+        <div class="otp-boxes">
+            <input
+                #otpInput
+                *ngFor="let digit of otp; let i = index; trackBy: trackByIndex"
+                type="text"
+                maxlength="1"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+                inputmode="numeric"
+                [value]="otp[i]"
+                (input)="onOtpInput($event, i)"
+                (keydown)="onKeyDown($event, i)">
+        </div>
+
+        <div class="error" *ngIf="otpError">
+            {{ otpError }}
+        </div>
+
+        <button
+            class="create-btn"
+            (click)="verifyOtp()">
+            Verify OTP
+        </button>
+        <p>did not received otp?<a (click)="resendOtp()">Resend OTP</a></p>
+    </div>
+
+    <div *ngIf="isOtpSuccess" class="signup-card">
+
+        <h4>Your Email verified sucessfully</h4>
+        <p>Click here to <a routerLink="/login">login</a></p>
+    </div>
+</div>

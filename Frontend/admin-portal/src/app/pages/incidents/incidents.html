@@ -1,0 +1,166 @@
+<h2 class="page-title">Incident Management</h2>
+
+<mat-card class="incident-card">
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <!-- Search -->
+        <mat-form-field appearance="outline">
+            <mat-label>Search Incident</mat-label>
+            <input
+                matInput
+                (keyup)="applyFilter($event)"
+                placeholder="Search by Complaint ID, Department...">
+        </mat-form-field>
+        <!-- Department -->
+        <mat-form-field appearance="outline">
+            <mat-label>Department</mat-label>
+            <mat-select>
+                <mat-option value="">All</mat-option>
+                <mat-option value="Roads">Roads</mat-option>
+                <mat-option value="Water">Water</mat-option>
+                <mat-option value="Sanitation">Sanitation</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- Status -->
+        <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select>
+                <mat-option value="">All</mat-option>
+                <mat-option value="Pending">Pending</mat-option>
+                <mat-option value="In Progress">In Progress</mat-option>
+                <mat-option value="Resolved">Resolved</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <span class="spacer"></span>
+        <button
+            mat-raised-button
+            color="primary">
+            <mat-icon>download</mat-icon>
+            Export
+        </button>
+    </div>
+
+    <!-- Table -->
+    <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z2">
+        <!-- Complaint ID -->
+        <ng-container matColumnDef="complaintId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Complaint ID
+            </th>
+
+            <td mat-cell *matCellDef="let row">
+                {{ row.complaintId }}
+            </td>
+        </ng-container>
+        <!-- Department -->
+        <ng-container matColumnDef="department">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Department
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.department }}
+            </td>
+        </ng-container>
+        <!-- Complaint Category -->
+        <ng-container matColumnDef="complaintCategory">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Category
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.complaintCategory }}
+            </td>
+        </ng-container>
+        <!-- Description -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>
+                Description
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <span matTooltip="{{row.description}}">
+                    {{ row.description }}
+                </span>
+            </td>
+        </ng-container>
+        <!-- Status -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>
+                Status
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-chip
+                    class="status-chip"
+                    [ngClass]="row.status?.toLowerCase().replace(' ','-')">
+                    {{ row.status }}
+                </mat-chip>
+            </td>
+        </ng-container>
+        <!-- Created Date -->
+        <ng-container matColumnDef="createdDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Created On
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.createdDate | date:'dd/MM/yyyy HH:mm' }}
+            </td>
+        </ng-container>
+        <!-- Updated Date -->
+        <ng-container matColumnDef="updatedDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Updated On
+            </th>
+            <td mat-cell *matCellDef="let row">
+                {{ row.updatedDate ? (row.updatedDate | date:'dd/MM/yyyy HH:mm') : '-' }}
+            </td>
+        </ng-container>
+        <!-- Action -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>
+                Action
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <button
+                    mat-icon-button
+                    [matMenuTriggerFor]="actionMenu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #actionMenu="matMenu">
+                    <button
+                        mat-menu-item
+                        (click)="viewIncident(row)">
+                        <mat-icon>visibility</mat-icon>
+                        <span>View Details</span>
+                    </button>
+                    <button
+                        mat-menu-item
+                        (click)="openUpdateDialog(row)">
+                        <mat-icon>edit</mat-icon>
+                        <span>Update Status</span>
+                    </button>                   
+                </mat-menu>
+            </td>
+        </ng-container>
+
+        <!-- Header -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <!-- Rows -->
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!-- No Data -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="8">
+                No incidents found.
+            </td>
+        </tr>
+    </table>
+
+    <!-- Pagination -->
+    <mat-paginator
+        [pageSize]="5"
+        [pageSizeOptions]="[5,10,20,50]"
+        showFirstLastButtons>
+    </mat-paginator>
+</mat-card>

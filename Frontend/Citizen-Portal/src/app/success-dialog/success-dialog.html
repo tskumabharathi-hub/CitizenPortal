@@ -1,0 +1,36 @@
+<div class="success-card">
+
+    <div class="icon">
+        ✔
+    </div>
+
+    <h2>Complaint Submitted</h2>
+
+    <p class="message">
+        Your complaint has been successfully registered.
+    </p>
+
+    <div class="details">
+
+        <div>
+            <span>Incident ID</span>
+            <strong>{{data.incidentId}}</strong>
+        </div>
+
+        <div>
+            <span>Status</span>
+            <strong class="status">{{data.status}}</strong>
+        </div>
+
+        <div>
+            <span>Submitted On</span>
+            <strong>{{data.date | date:'dd MMM yyyy hh:mm a'}}</strong>
+        </div>
+
+    </div>
+
+    <button mat-raised-button color="primary" (click)="ok()">
+        OK
+    </button>
+
+</div>

@@ -1,0 +1,166 @@
+<h2 mat-dialog-title class="dialog-title">
+
+    <span>{{incident.complaintId}}</span>
+
+    <mat-chip class="status-chip">
+
+        {{incident.status}}
+
+    </mat-chip>
+
+</h2>
+
+<div mat-dialog-content>
+
+    <!-- Citizen Information -->
+    <mat-card>
+        <h3>
+            <mat-icon>person</mat-icon>
+            Citizen Information
+        </h3>
+        <mat-divider></mat-divider>
+        <div class="grid">
+            <div>
+                <label>Name</label>
+                <p>{{incident.name}}</p>
+            </div>
+            <div>
+                <label>Email</label>
+                <p>{{incident.email}}</p>
+            </div>
+            <div>
+                <label>Phone</label>
+                <p>{{incident.mobile}}</p>
+            </div>
+        </div>
+    </mat-card>
+
+    <!-- Incident -->
+
+    <mat-card>
+
+        <h3>
+
+            <mat-icon>report_problem</mat-icon>
+
+            Incident Information
+
+        </h3>
+
+        <mat-divider></mat-divider>
+
+        <div class="grid">
+
+            <div>
+                <label>Department</label>
+                <p>{{incident.department}}</p>
+            </div>
+
+            <div>
+                <label>Category</label>
+                <p>{{incident.complaintCategory}}</p>
+            </div>
+            
+            <div>
+                <label>Reported On</label>
+                <p>{{incident.createdDate}}</p>
+            </div>
+
+        </div>
+
+        <label>Description</label>
+
+        <p class="description">
+
+            {{incident.description}}
+
+        </p>
+
+    </mat-card>
+
+    <!-- Location -->
+
+    <mat-card>
+
+        <h3>
+
+            <mat-icon>location_on</mat-icon>
+
+            Location
+
+        </h3>
+
+        <mat-divider></mat-divider>
+
+        <div class="grid">
+
+            <div>
+
+                <label>Latitude</label>
+
+                <p>{{incident.latitude}}</p>
+
+            </div>
+
+            <div>
+
+                <label>Longitude</label>
+
+                <p>{{incident.longitude}}</p>
+
+            </div>
+
+        </div>
+
+        <button
+            mat-raised-button
+            color="primary"
+            (click)="viewOnMap()">
+
+            <mat-icon>map</mat-icon>
+
+            View on Map
+
+        </button>
+
+    </mat-card>
+
+    <!-- Photo -->
+
+    <mat-card>
+
+        <h3>
+
+            <mat-icon>image</mat-icon>
+
+            Uploaded Photo
+
+        </h3>
+
+        <mat-divider></mat-divider>
+
+        <img
+            [src]="incident.imagePath"
+            class="incident-image"
+            alt="Incident Image">
+
+    </mat-card>
+
+</div>
+
+<div mat-dialog-actions align="end">
+
+    <button
+        mat-button
+        (click)="closeDialog()">
+        Close
+    </button>
+
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="updateStatus()">
+        Update Status
+    </button>
+
+</div>

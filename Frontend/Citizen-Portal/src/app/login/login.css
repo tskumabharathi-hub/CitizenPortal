@@ -1,0 +1,128 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.container{
+
+    width:100%;
+    height:100vh;
+
+    background-image:url('../../assets/images/chennai-bg.jpeg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+
+    padding-right:70px;
+}
+
+.signup-card{
+
+    width:430px;
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.signup-card h1{
+
+    color:#202060;
+
+    margin-bottom:25px;
+}
+
+label{
+
+    display:block;
+
+    margin:18px 0 8px;
+
+    font-size:18px;
+}
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:2px solid #000;
+
+    border-radius:8px;
+
+    font-size:17px;
+}
+
+.create-btn{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:15px;
+
+    background:#23236d;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+.google-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:15px;
+
+    background:white;
+
+    border:2px solid #000;
+
+    border-radius:8px;
+
+    font-size:18px;
+
+    cursor:pointer;
+}
+
+p{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    font-size:17px;
+}
+
+a{
+
+    text-decoration:none;
+
+    color:#1976d2;
+
+    font-weight:bold;
+}
+
+.error {
+    color: red;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,101 @@
+<h2 mat-dialog-title>
+
+    Update Incident Status
+
+</h2>
+
+<div mat-dialog-content>
+
+    <mat-card>
+
+        <p><strong>Incident :</strong> {{incident.complaintId}}</p>
+
+        <p><strong>Citizen :</strong> {{incident.name}}</p>
+
+        <p><strong>Department :</strong> {{incident.department}}</p>
+
+        <p><strong>Current Status :</strong> {{incident.status}}</p>
+
+    </mat-card>
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Status</mat-label>
+
+        <mat-select [(ngModel)]="status">
+
+            <mat-option value="Pending">
+
+                Pending
+
+            </mat-option>
+
+            <mat-option value="In Progress">
+
+                In Progress
+
+            </mat-option>
+
+            <mat-option value="Resolved">
+
+                Resolved
+
+            </mat-option>
+
+            <mat-option value="Rejected">
+
+                Rejected
+
+            </mat-option>
+
+        </mat-select>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Assign To</mat-label>
+
+        <input
+            matInput
+            [(ngModel)]="assignedTo"
+            placeholder="Engineer / Department">
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Remarks</mat-label>
+
+        <textarea
+            matInput
+            rows="5"
+            [(ngModel)]="remarks">
+        </textarea>
+
+    </mat-form-field>
+
+</div>
+
+<div
+    mat-dialog-actions
+    align="end">
+
+    <button
+        mat-button
+        (click)="cancel()">
+
+        Cancel
+
+    </button>
+
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="save()">
+
+        Save Changes
+
+    </button>
+
+</div>

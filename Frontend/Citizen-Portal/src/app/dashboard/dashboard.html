@@ -1,0 +1,22 @@
+<div class="loading-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
+
+<div class="dashboard">
+
+  <app-header></app-header>
+
+  <div class="body">
+
+    <app-sidenav
+      class="sidebar"
+      [opened]="sidebar">
+    </app-sidenav>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
+</div>

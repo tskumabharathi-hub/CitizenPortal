@@ -1,0 +1,84 @@
+.dialog-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.status-chip{
+    background:#fb8c00 !important;
+    color:#fff !important;
+}
+
+mat-card{
+    margin-bottom:20px;
+    padding:20px;
+    border-radius:12px;
+}
+
+h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+    color:#1565C0;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin:20px 0;
+}
+
+label{
+    font-size:13px;
+    font-weight:600;
+    color:#757575;
+}
+
+p{
+    margin-top:5px;
+    font-size:15px;
+}
+
+.description{
+    margin-top:10px;
+    line-height:1.6;
+}
+
+.incident-image{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-top:15px;
+    border:1px solid #ddd;
+}
+
+mat-dialog-content{
+    max-height:70vh;
+    overflow:auto;
+}
+
+mat-dialog-actions{
+    padding-top:15px;
+}
+
+@media(max-width:768px){
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .dialog-title{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+
+    }
+
+}

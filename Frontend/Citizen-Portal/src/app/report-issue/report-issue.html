@@ -1,0 +1,65 @@
+<div class="report-page">
+  <div class="card">
+    <div class="header">
+      <h2>Report an Issue</h2>
+    </div>
+    <form [formGroup]="reportForm" (ngSubmit)="submit()">
+      <div class="row">
+        <div class="field">
+          <label>Department</label>
+          <select formControlName="department" (change)="departmentChanged()">
+            <option value="">Select Department</option>
+            <option *ngFor="let d of departments"
+                    [value]="d.name">
+              {{ d.name }}
+            </option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Issue</label>
+          <select formControlName="issue">
+            <option value="">Select Issue</option>
+            <option *ngFor="let i of issues"
+                    [value]="i">
+              {{ i }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Describe Issue</label>
+        <textarea rows="5" formControlName="description"></textarea>
+      </div>
+      <div class="row">
+        <div class="field grow">
+          <label>Location</label>
+          <input type="text" placeholder="Search address"formControlName="address">
+        </div>
+        <button type="button" class="location-btn" (click)="openLocationPicker()">
+          📍 Select Location
+        </button>
+      </div>
+
+      <div class="upload-section">
+        <div>
+          <label>Upload Photo</label>
+          <input type="file" accept="image/*" (change)="upload($event)">
+        </div>
+
+        <div class="preview">
+          <img *ngIf="preview"
+               [src]="preview">
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="cancel">
+          Cancel
+        </button>
+        <button type="submit" class="submit">
+          Submit Report
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

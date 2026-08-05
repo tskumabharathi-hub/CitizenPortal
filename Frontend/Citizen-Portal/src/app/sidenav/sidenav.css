@@ -1,0 +1,45 @@
+.sidebar {
+
+    position: fixed;
+
+    top: 120px;              /* Header height */
+
+    left: 0;
+
+    width: 280px;
+
+    height: calc(100vh - 120px);
+
+    background: #ddd;
+
+    border-right: 1px solid #000;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    z-index: 100;
+}
+
+.sidebar img{
+
+    width:150px;
+    display:block;
+    margin:20px auto;
+}
+
+.sidebar a{
+
+    display:block;
+    padding:20px;
+    font-size:30px;
+    font-weight:bold;
+    text-decoration:none;
+    color:black;
+    border-top:2px solid black;
+}
+
+.sidebar a:hover{
+
+    background:white;
+}
